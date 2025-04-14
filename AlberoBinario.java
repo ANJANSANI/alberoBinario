@@ -30,4 +30,23 @@ public class AlberoBinario {
     public void visitaDifferita() {
         visitaDifferita(ptr);
     }
+
+    
+    public void inserisci(int valore) {
+        ptr = inserisci(ptr, valore);
+    }
+
+    private NodoAlberoBinario inserisci(NodoAlberoBinario nodo, int valore) {
+        if (nodo == null) {
+            return new NodoAlberoBinario(valore);
+        }
+
+        if (valore < nodo.getInfo()) {
+            nodo.setLeftChild(inserisci(nodo.getLeftChild(), valore));
+        } else {
+            nodo.setRightChild(inserisci(nodo.getRightChild(), valore));
+        }
+
+        return nodo;
+    }
 }
